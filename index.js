@@ -6,9 +6,9 @@ const argv = require('yargs')
   .env('SCRABBLEMOJIER')
   .default({
     copy: true,
-    prefix: ':',
+    prefix: ':alphabet-yellow-',
     suffix: ':',
-    blank: ':blank:',
+    blank: '   ',
   }).argv;
 const ncp = require('copy-paste');
 
@@ -24,7 +24,7 @@ const scrabbled = str
     .split('')
     .filter(char => char.match(/[a-z]/g))
     .map(char => `${argv.prefix}${char}${argv.suffix}`)
-    .join(' '))
+    .join(''))
   .join(` ${argv.blank} `);
 
 process.stdout.write(`${scrabbled}\n`);
